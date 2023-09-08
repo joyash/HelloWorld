@@ -235,19 +235,11 @@ while(a<5):
         print(f"{a} multiply with {b} is {a*b}")
     a += 1"""
 
-"""user = ["Viivi", "Ahmed", "Pekka", "Olga", "Mary"]
-user.append("hello")
-print(user)
-print(user[-3:-1])
-print(user.index("Ahmed"))
-loser = ["roar", "soar"]
-user.extend(loser)
-print(user)
-"""
-lst = ["kimmo", "janne", "mohammed", "luna"]
-lst.append("hora")
-"""for x in lst:
-    print(x)"""
-for xid, x in enumerate(lst):
-    if(x != lst[-1]):
-      print(f"{x} is having coffee with {lst[xid+1]}")
+lst = ["kinno", "jnne", "sita", "extra"]
+newlst = [x for x in lst if(x != "kinno")]
+print(f"new list is {newlst}")
+
+nmb = ["45", "33", "65"]
+print(nmb)
+nmb = [int(x) for x in nmb]
+print(nmb)
