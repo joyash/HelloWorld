@@ -17,7 +17,7 @@ mydb = mysql.connector.connect(
 )
 
 area_code = input("Enter your desired area code:  ")
-sql = ("select name,type, iso_country from airport where iso_country = 'FI' order by type;")
+sql = ("select name,type, iso_country from airport order by type;")
 mycursor = mydb.cursor()
 mycursor.execute(sql)
 results = mycursor.fetchall()
@@ -27,3 +27,6 @@ if results:
             print(f"{name}: {type}")
 else:
     print("Invalid error")
+
+mycursor.close()
+mydb.close()
