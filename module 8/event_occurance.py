@@ -14,25 +14,35 @@ mydb = mysql.connector.connect(
 def select_random_event():
     mycursor= mydb.cursor()
     #retrive event data from database
-    mycursor.execute("SELECT id, info, type, co2_change, distance_change FROM event")
+    mycursor.execute("SELECT id, info, type, IFNULL(co2_change, 0.0) AS co2_change, IFNULL(distance_change, 0.0) AS distange_change FROM event")
     events_data = mycursor.fetchall()
+    # Filter out events with insufficient data
+    valid_events = [event for event in events_data if len(event) == 6]
     # calculate total probability
-    total_probability = sum(event[3] if event[3] is not None else 0 for event in events_data)
+    total_probability = sum(event[3] for event in valid_events)
     # if total probability is 0, add a default event with non-zero probability
     if total_probability == 0:
         default_event = (0, "Default Event", "default", 0.1, 0.01, 0.05)
-        events_data.append(default_event)
+        valid_events.append(default_event)
         total_probability += 0.1 # adjusting total probability
     #generate a random number
     random_value = random.uniform(0, 1)
     cumulative_probability = 0
 
     #iterate through events
-    for event in events_data:
-        if len(event) != 6:
-            print("Invalid event data - Skipping this event.")
-            continue
+    for event in valid_events:
         event_id, info, event_type, probability, co2_change, distance_change = event
+
+        # Check for missing values and assign defaults
+        if event_type is None:
+            event_type = "default_type"  # Assign a default event type
+        if probability is None:
+            probability = 0.1  # Assign a default probability
+        if co2_change is None:
+            co2_change = 0.01  # Assign a default CO2 change
+        if distance_change is None:
+            distance_change = 0.05  # Assign a default distance change
+
         normalized_probability = probability / total_probability
         cumulative_probability += normalized_probability
 
