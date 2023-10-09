@@ -1,12 +1,4 @@
-lst = ["kimmo", "janne", "mohammed", "luna"]
-lst.append("hora")
-for x in lst:
-    print(x)
-for xid, x in enumerate(lst):
-    if(x != lst[-1]):
-      print(f"{x} is having coffee with {lst[xid+1]}")
-
-"""import mysql.connector
+import mysql.connector
 import random
 
 # Establish a MySQL database connection
@@ -47,4 +39,3 @@ if selected_event:
     print(f"Distance Change: {distance_change}")
 else:
     print("No event selected")
-"""
