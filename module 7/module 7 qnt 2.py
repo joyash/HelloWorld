@@ -15,10 +15,6 @@ while new_name != "":
      else:
          print("Name already in set")
          new_name = input("Enter your name here or quit by pressing enter: ")
-
-
-
-
 else:
     print("You select to quit")
     print(name_set)

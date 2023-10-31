@@ -10,15 +10,16 @@ patient.append(("bhuwan","lama","60","flu"))
 patient.append(("sunil","praja","60","flu"))
 patient.append(("aryan","mahat","60","flu"))
 
-print(patient[0:3])
+print(patient[0:])
 
 
 def check_name(patient,new_name):
-    if new_name in patient[0]:
-        print("name is in list")
-    else:
-        print("name not in the list")
-
+    for i in patient:
+        if new_name in patient:
+            print("name is in list")
+        else:
+            print("name not in the list")
+    return patient
 
 new_name = input("enter your name: ")
 check_name(patient,new_name)
