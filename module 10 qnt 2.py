@@ -1,12 +1,3 @@
-class Building:
-    def __init__(self, bottom_floor, top_floor, elevator):
-        self.bottom_floor = bottom_floor
-        self.top_floor = top_floor
-        self.elevator = elevator
-
-    def run_elevator(self):
-
-
 class Elevator:
     def __init__(self, bottom_floor, top_floor, current_floor=0, ):
         self.current_floor = current_floor
@@ -30,6 +21,14 @@ class Elevator:
             for i in range(self.current_floor, to_floor, -1):
                 self.floor_down()
         print(f"Thank you for using the elevator. The current floor is {self.current_floor}")
+
+
+class Building:
+    def __init__(self, numbers_of_elevator):
+        self.numbers_of_elevator = []
+
+    def run_elevator(self, ):
+        
 
 
 lift = Elevator(0, 7)

@@ -9,18 +9,23 @@
     def setName(self, newName):
         self.name = newName
 
+    def print_information(self):
+        print(f"The stundent name is {self.name} his/her age is {self.age} and studying {self.degree}")
 
 student = Student("rabin", "16", "mbs")
 student1 = Student("Fatima", "24", "IT")
 student2 = Student("Losika", "19", "BBA")
-print(f"The stundent name is {student.name} his/her age is {student.age} and studying {student.degree}")
+student.print_information()
+student1.print_information()
+student2.print_information()"""
 
+"""print(f"The stundent name is {student.name} his/her age is {student.age} and studying {student.degree}")
 print(f"The stundent name is {student2.name} his/her age is {student2.age} and studying {student2.degree}")
 student1.setName("Elisha")
 print(f"The stundent name is {student1.name} his/her age is {student1.age} and studying {student1.degree}")
 print(f"Number of student in class is {student.counter}")
-
 """
+
 """class Rectangle():
     pass
 
@@ -67,3 +72,59 @@ bus = Bus(50)
 print(f"Bus Fare: {bus.get_fare()}")
 
 """
+"""import requests
+keyword = input("Enter keyword: ")
+request = "https://api.google.com/search/shows?q=" + keyword
+response = requests.get(request).json()
+print(response)"""
+
+"""class Customer:
+    customer_number = 0
+    def __init__(self, first_name, last_name, loyalty_points ):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.loyalty_points = loyalty_points
+        Customer.customer_number += 1
+
+    def loyalty(self, i):
+        self.loyalty_points += i
+         print(f"{self.first_name} {self.last_name} has {self.loyalty_points} loyalty points. ")
+
+
+customer = Customer("arav", "karki", 0)
+customer1 = Customer("bishes", "pandit", 1)
+customer2 = Customer("pooja", "neupane", 2)
+
+new_variable = customer.loyalty(3)
+new_variable = customer.loyalty(4)
+new_variable = customer.loyalty(4)
+
+new_variable1 = customer1.loyalty(4)
+new_variable2 = customer1.loyalty(4)
+
+new_variable3 = customer2.loyalty(3)
+add_points = customer2.loyalty(10)
+
+
+print(f"{customer.first_name} {customer.last_name} has {customer.loyalty_points} loyalty points. ")
+print(f"{customer1.first_name} {customer1.last_name} has {customer1.loyalty_points} loyalty points. ")
+print(f"{customer2.first_name} {customer2.last_name} has {customer2.loyalty_points} loyalty points. ")
+print(f"number of customer are {Customer.customer_number}")
+
+"""
+from flask import Flask, request
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def calculate_sum():
+    args = request.args
+    number1 = 12  # float(args.get("number1"))
+    number2 = 13  # //float(args.get("number2"))
+    total_sum = number1 + number2
+    return str(total_sum)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
