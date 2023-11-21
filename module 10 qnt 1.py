@@ -28,4 +28,3 @@ class Elevator:
 lift = Elevator(0, 7)
 lift.go_to_floor(1)
 lift.go_to_floor(5)
-lift.go_to_floor(0)
