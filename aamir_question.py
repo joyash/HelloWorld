@@ -54,6 +54,7 @@ print(f"{course1.name} has the following students: {course1.list_student()}")
 print(f"{course2.name} has the following students: {course2.list_student()}")
 print(f"{course3.name} has the following students: {course3.list_student()}")
 
-courses = [course1, course2, course3]:
+"""courses = [course1, course2, course3]:
 for student in courses:
     print(f"{student.name} has {student.course}")
+"""

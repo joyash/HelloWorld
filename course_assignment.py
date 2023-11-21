@@ -47,3 +47,4 @@ for hobby in hobbies:
 
 for i in event:
     print(f"{i.participants} are going to: {i.name} on {i.date} in {i.location}")
+

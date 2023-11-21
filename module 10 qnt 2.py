@@ -24,11 +24,27 @@ class Elevator:
 
 
 class Building:
-    def __init__(self, numbers_of_elevator):
-        self.numbers_of_elevator = []
+    building_counter = 0
 
-    def run_elevator(self, ):
+    def __init__(self, numbers_of_elevator, bottom_floor, top_floor):
+        self.elevator_object = []
+        self.bottom_floor = bottom_floor
+        self.top_floor = top_floor
+        Building.building_counter += 1
+        self.building_number = Building.building_counter
+        for i in range(0, numbers_of_elevator):
+            self.elevator_object.append(Elevator(bottom_floor, top_floor, bottom_floor))
+
+    def run_elevator(self, number_of_elevator, to_floor):
+        print("Building ", self.building_number, "Elevator number:", number_of_elevator)
+        self.elevator_object[number_of_elevator].go_to_floor(to_floor)
         
 
 
 lift = Elevator(0, 7)
+building = Building(3, 0, 10)  # creating a building object
+building.run_elevator(2, 4)  # ask third elevator to go fourth floor
+building.run_elevator(0, 9)  # ask first elevator to go ninth floor
+building.run_elevator(0, 5)  # ask first elevator to go fifth floor
+building1 = Building(5, 3, 7)  # creating second building object
+building1.run_elevator(4, 7)  # ask second building elevator to go fourth floor
